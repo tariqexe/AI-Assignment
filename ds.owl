@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/descriptive_statistics#"
+     xml:base="http://www.semanticweb.org/descriptive_statistics"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/descriptive_statistics"/>
+
+    <!-- Classes -->
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#DescriptiveStatistics"/>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#MeasureOfCentralTendency">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#DescriptiveStatistics"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#MeasureOfDispersion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#DescriptiveStatistics"/>
+    </owl:Class>
+
+    <!-- Subclasses of MeasureOfCentralTendency -->
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Mean">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfCentralTendency"/>
+        <rdfs:comment>The mean is the sum of all values divided by the number of values in the dataset.</rdfs:comment>
+        <rdfs:label>Mean</rdfs:label>
+        <rdfs:isDefinedBy>Definition: The mean, also known as the average, is the sum of all data values divided by the total number of data points. It is one of the most commonly used measures of central tendency and provides an overall sense of the data’s distribution..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: The mean is used to calculate the central value of a dataset by distributing the total value of the data equally across all data points. However, it is sensitive to outliers. For instance, a very high or very low value can significantly affect the mean, making it less representative of the dataset as a whole. Despite this, the mean remains a powerful measure when the data is symmetrically distributed..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2, 3, 5. Mean = (2+3+5)/3 = 3.33.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: Mean = (Sum of all values) / (Number of values).</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Median">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfCentralTendency"/>
+        <rdfs:comment>The median is the middle value in a sorted dataset.</rdfs:comment>
+        <rdfs:label>Median</rdfs:label>
+        <rdfs:isDefinedBy>Definition: The median is the middle value in a dataset when the numbers are arranged in ascending order. For datasets with an even number of values, the median is the average of the two middle values..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: The median is a robust measure of central tendency that divides a dataset into two equal halves. Unlike the mean, the median is not influenced by extreme values, making it particularly useful for skewed datasets. It represents the point where 50% of the values lie below and 50% lie above, providing a better sense of centrality in certain contexts..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2,3, 4, 5, 6, 7, 9. Median = 5.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: For an odd number of values: Median = Middle value. For even: Median = Average of two middle values.</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Mode">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfCentralTendency"/>
+        <rdfs:comment>The mode is the most frequently occurring value in a dataset.</rdfs:comment>
+        <rdfs:label>Mode</rdfs:label>
+        <rdfs:isDefinedBy>Definition: The mode is the value that occurs most frequently in a dataset. A dataset may have one mode (unimodal), more than one mode (multimodal), or no mode if all values have the same frequency..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: The mode is particularly useful for categorical or discrete data, where identifying the most common value is important. In continuous datasets, the mode may not always provide meaningful insight unless the data has distinct peaks. For datasets with multiple modes, it’s important to consider the context to interpret their significance..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2, 3, 3, 5. Mode = 3.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: Identify the value with the highest frequency.</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <!-- Subclasses of MeasureOfDispersion -->
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#StandardDeviation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfDispersion"/>
+        <rdfs:comment>The standard deviation measures the amount of variation in a dataset.</rdfs:comment>
+        <rdfs:label>Standard Deviation</rdfs:label>
+        <rdfs:isDefinedBy>Definition: Standard deviation is the square root of variance and measures the average deviation of data points from the mean. It is expressed in the same unit as the data.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: Standard deviation provides a clearer understanding of variability compared to variance because it is expressed in the same unit as the data. A small standard deviation indicates that most data points are close to the mean, while a large standard deviation suggests greater spread. It is widely used in fields like finance, science, and engineering to assess risk, uncertainty, or consistency.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2, 4, 4, 4, 5, 5, 7, 9. Std Dev = 2.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: Std Dev = sqrt(Sum((x - Mean)^2) / N).</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Variance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfDispersion"/>
+        <rdfs:comment>Variance measures the average squared deviation from the mean.</rdfs:comment>
+        <rdfs:label>Variance</rdfs:label>
+        <rdfs:isDefinedBy>Definition: Variance measures the average squared deviation of each data point from the mean. It quantifies the degree to which data points differ from the central value..</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: Variance provides insight into the spread of a dataset. A higher variance indicates greater dispersion, while a lower variance suggests that the data points are closer to the mean. Unlike the range, variance considers all data points, making it a more comprehensive measure of variability. However, its unit is the square of the original data’s unit, which can make interpretation less intuitive.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2, 4, 6. Variance = 4.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: Variance = Sum((x - Mean)^2) / N.</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Range">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/descriptive_statistics#MeasureOfDispersion"/>
+        <rdfs:comment>The range is the difference between the highest and lowest values in a dataset.</rdfs:comment>
+        <rdfs:label>Range</rdfs:label>
+        <rdfs:isDefinedBy>Definition: The range is the difference between the largest and smallest values in a dataset. It provides a measure of the spread of the data.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Explanation: SThe range offers a quick way to understand the dispersion or variability in a dataset. However, it is highly sensitive to outliers. A single extreme value can drastically increase the range, making it less reliable as a standalone measure of variability. Despite this limitation, the range is easy to compute and useful for initial data analysis.
+
+</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Example: Dataset: 2, 3, 7, 8. Range = 8 - 2 = 6.</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy>Formula: Range = Max value - Min value.</rdfs:isDefinedBy>
+    </owl:Class>
+
+    <!-- Quiz Class -->
+    <owl:Class rdf:about="http://www.semanticweb.org/descriptive_statistics#Quiz">
+        <rdfs:comment>Represents a quiz containing questions related to descriptive statistics.</rdfs:comment>
+        <rdfs:label>Quiz</rdfs:label>
+    </owl:Class>
+
+    <!-- Quiz Questions -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+        <rdfs:label>What is the mean of the dataset: 4, 6, 8?</rdfs:label>
+        <rdfs:comment>Answer: 6</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+        <rdfs:label>What is the median of the dataset: 3, 7, 9?</rdfs:label>
+        <rdfs:comment>Answer: 7</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+        <rdfs:label>What is the mode of the dataset: 3, 3, 7, 9?</rdfs:label>
+        <rdfs:comment>Answer: 3</rdfs:comment>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion4">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the range of the dataset: 2, 5, 8, 12?</rdfs:label>
+    <rdfs:comment>Answer: 10</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion5">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the variance of the dataset: 4, 4, 4, 4?</rdfs:label>
+    <rdfs:comment>Answer: 0</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion6">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the standard deviation of the dataset: 2, 4, 4, 4, 5, 5, 7, 9?</rdfs:label>
+    <rdfs:comment>Answer: 2</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion7">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the mean of the dataset: 10, 15, 20, 25?</rdfs:label>
+    <rdfs:comment>Answer: 17.5</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion8">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the median of the dataset: 11, 13, 15, 16, 18?</rdfs:label>
+    <rdfs:comment>Answer: 15</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion9">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the mode of the dataset: 6, 7, 7, 9, 10?</rdfs:label>
+    <rdfs:comment>Answer: 7</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://www.semanticweb.org/descriptive_statistics#QuizQuestion10">
+    <rdf:type rdf:resource="http://www.semanticweb.org/descriptive_statistics#Quiz"/>
+    <rdfs:label>What is the range of the dataset: 3, 8, 12, 15, 20?</rdfs:label>
+    <rdfs:comment>Answer: 17</rdfs:comment>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
